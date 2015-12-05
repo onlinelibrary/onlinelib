@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="shell" template="/WEB-INF/views/layouts/shell.jsp">
+		<put-attribute name="header"
+			value="/WEB-INF/views/layouts/header.jsp" />
+		<put-attribute name="main" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/layouts/footer.jsp" />
+	</definition>
+
+	<definition name="home" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/home.jsp" />
+	</definition>
+	<definition name="portal" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/account/portal.jsp" />
+	</definition>
+	<definition name="adminportal" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/adminportal.jsp" />
+	</definition>
+
+	<definition name="account/login" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/account/login.jsp" />
+	</definition>
+
+	<definition name="account/signup" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/account/signup.jsp" />
+	</definition>
+
+	<definition name="account/contactus" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/account/contactus.jsp" />
+	</definition>
+
+	<definition name="books/search" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/books/search.jsp" />
+	</definition>
+
+	<definition name="books/searchresults" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/books/searchresults.jsp" />
+	</definition>
+	<definition name="books/checkoutresults" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/books/checkoutresults.jsp" />
+	</definition>
+	<definition name="books/holdresults" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/books/holdresults.jsp" />
+	</definition>
+	<definition name="books/holdsuccess" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/books/holdsuccess.jsp" />
+	</definition>
+	<definition name="books/holdreleasesuccess" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/books/holdreleasesuccess.jsp" />
+	</definition>
+
+	<definition name="admin/manageholds" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/manageholds.jsp" />
+	</definition>
+
+	<definition name="admin/managecheckouts" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/managecheckouts.jsp" />
+	</definition>
+
+	<definition name="admin/holdresults" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/adminholds.jsp" />
+	</definition>
+
+	<definition name="admin/checkoutresults" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/admincheckouts.jsp" />
+	</definition>
+
+	<definition name="admin/checkoutsuccess" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/checkoutsuccess.jsp" />
+	</definition>
+	<definition name="admin/holdreleasesuccess" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/holdreleasesuccess.jsp" />
+	</definition>
+	<definition name="admin/returnsuccess" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/returnsuccess.jsp" />
+	</definition>
+	<definition name="admin/manageusers" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/manageusers.jsp" />
+	</definition>
+	<definition name="admin/userupdatesuccess" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/userupdatesuccess.jsp" />
+	</definition>
+
+	<definition name="admin/userinfo" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/admin/userinfo.jsp" />
+	</definition>
+	<definition name="error" extends="shell">
+		<put-attribute name="main" value="/WEB-INF/views/error/error.jsp" />
+	</definition>
+
+</tiles-definitions>

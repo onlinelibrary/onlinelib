@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                       	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                       	http://www.springframework.org/schema/context 
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/data/jpa 
+						http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+                        http://www.springframework.org/schema/util 
+                        http://www.springframework.org/schema/util/spring-util.xsd
+                        http://www.springframework.org/schema/mvc 
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+						http://www.springframework.org/schema/aop 
+				        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+						http://www.springframework.org/schema/jee
+	 					http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+	<jpa:repositories base-package="com.onlinelib.repository" />
+
+
+	<mvc:annotation-driven />
+	<context:component-scan base-package="com.onlinelib" />
+
+<!-- 	<bean id="dataSource" -->
+<!-- 		class="org.apache.commons.dbcp.BasicDataSource"> -->
+<!-- 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" /> -->
+<!-- 		<property name="url" -->
+<!-- 			value="jdbc:oracle:thin:" /> -->
+<!-- 		<property name="username" value="" /> -->
+<!-- 		<property name="password" value="" /> -->
+<!-- 	</bean> -->
+	<jee:jndi-lookup jndi-name="jdbc/MySQLDS" id="dataSource" />
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean>
+
+	<bean id="jpaVendorAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="database" value="MYSQL" />
+		<property name="generateDdl" value="false" />
+	</bean>
+
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.onlinelib</value>
+			</list>
+		</property>
+<!-- 		<property name="jpaPropertyMap"> -->
+<!-- 			<map> -->
+<!-- 				<entry key="hibernate.ejb.event.post-insert" value="org.hibernate.ejb.event.EJB3PostInsertEventListener,org.hibernate.envers.event.AuditEventListener" /> -->
+<!-- 				<entry key="hibernate.ejb.event.post-update" value="org.hibernate.ejb.event.EJB3PostUpdateEventListener,org.hibernate.envers.event.AuditEventListener" /> -->
+<!-- 				<entry key="hibernate.ejb.event.post-delete" value="org.hibernate.ejb.event.EJB3PostDeleteEventListener,org.hibernate.envers.event.AuditEventListener" /> -->
+<!-- 				<entry key="hibernate.ejb.event.pre-collection-update" value="org.hibernate.envers.event.AuditEventListener" /> -->
+<!-- 				<entry key="hibernate.ejb.event.pre-collection-remove" value="org.hibernate.envers.event.AuditEventListener" /> -->
+<!-- 				<entry key="hibernate.ejb.event.post-collection-recreate" value="org.hibernate.envers.event.AuditEventListener" /> -->
+<!-- 				<entry key="hibernate.format_sql" value="false" /> -->
+<!-- 				<entry key="hibernate.cache.use_second_level_cache" value="false" /> -->
+<!-- 				<entry key="hibernate.cache.use_query_cache" value="false" /> -->
+<!-- 			</map> -->
+<!-- 		</property> -->
+	</bean>
+
+</beans>
