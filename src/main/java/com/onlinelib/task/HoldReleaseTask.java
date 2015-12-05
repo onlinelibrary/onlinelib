@@ -24,7 +24,7 @@ public class HoldReleaseTask {
 
 	public HoldReleaseTask() {
 		timer = new Timer();
-		timer.schedule(new HoldRelease(), 0, 60 * 1000);
+		timer.schedule(new HoldRelease(), 0, 30 * 1000);
 	}
 
 	class HoldRelease extends TimerTask {
